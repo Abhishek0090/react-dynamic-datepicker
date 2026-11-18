@@ -1,0 +1,104 @@
+/* Light is the default. The header toggle sets data-theme="dark" on <html>. */
+:root {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #1f2a44;
+  --muted: #5b6478;
+  --border: #e3e6ee;
+  --accent: #3b59f6;
+  --code-bg: #f0f2f8;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d1117;
+  --card: #161b22;
+  --text: #e6edf3;
+  --muted: #9aa4b2;
+  --border: #2a313c;
+  --accent: #7c93ff;
+  --code-bg: #1f2630;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.page { max-width: 1200px; margin: 0 auto; padding: 32px 16px 64px; }
+
+.hero { margin-bottom: 32px; }
+.topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.theme-toggle { text-transform: none; }
+.hero h1 { margin: 0; font-size: clamp(1.75rem, 4vw, 2.5rem); }
+.hero p { margin: 0 0 16px; color: var(--muted); max-width: 680px; }
+
+.install {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.links { display: flex; gap: 16px; }
+.links a { color: var(--accent); font-weight: 600; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  gap: 24px;
+}
+
+.demo {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  min-width: 0;
+}
+.demo h2 { margin: 0 0 4px; font-size: 1.15rem; }
+.demo > p { margin: 0 0 16px; color: var(--muted); font-size: 0.9rem; }
+.demo-body { min-width: 0; }
+
+.out { font-size: 0.875rem; color: var(--muted); }
+
+details { margin-top: 12px; }
+summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+pre {
+  overflow-x: auto;
+  background: var(--code-bg);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+.form { display: grid; gap: 8px; }
+.form label { font-weight: 600; font-size: 0.9rem; }
+
+/* Scoped to .btn so it never styles the calendar's own buttons. */
+.btn {
+  font: inherit;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.btn[type="submit"], .btn[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.loading { color: var(--muted); }
